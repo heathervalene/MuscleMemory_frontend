@@ -4,13 +4,14 @@
 
 ### By: Heather Rouke
 
-#### [GitHub](https://github.com/heathervalene) | [LinkedIn](https://www.linkedin.com/in/heather-rouke-069347b7/)
-
 ***
 
 ### **_Description_**
 
 #### This is a fullstack MERN web app that allows a user to find specific workouts and log their workouts.  
+
+[Server-side Repo](https://github.com/heathervalene/MuscleMemory_backend)
+[Client-side Repo](https://github.com/heathervalene/MuscleMemory_frontend)
 
 [Live Site]()
 
