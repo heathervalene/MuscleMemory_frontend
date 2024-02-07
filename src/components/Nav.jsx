@@ -4,9 +4,10 @@ const Nav = () => {
     return (
         <nav>
             <ul>
-                <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
                 <li><NavLink to="/musclegroup">Muscle Group</NavLink></li>
+                <li><NavLink to="/addworkout">Add Workout</NavLink></li>
+                <li><NavLink to="/workoutdetail">My Workouts</NavLink></li>
                 
             </ul>
         </nav>

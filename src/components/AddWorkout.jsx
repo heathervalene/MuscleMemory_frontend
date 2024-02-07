@@ -1,6 +1,6 @@
 
 
-const NewWorkout = () => {
+const AddWorkout = () => {
     return (
         <div>
             <h1>New Workout</h1>
@@ -8,4 +8,4 @@ const NewWorkout = () => {
     )
 }
 
-export default NewWorkout
+export default AddWorkout
