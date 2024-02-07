@@ -11,7 +11,7 @@ const AddWorkout = () => {
     };
 
     const [newWorkout, setNewWorkout] = useState(initialWorkoutState);
-    const [muscles, setMuscles] = useState([]); // State to store available muscles
+    const [muscles, setMuscles] = useState([]); 
 
     useEffect(() => {
         const fetchMuscles = async () => {
