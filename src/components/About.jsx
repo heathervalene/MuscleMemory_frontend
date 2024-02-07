@@ -3,7 +3,7 @@ const About = () => {
     return (
         <div>
             <h1>Welcome to Muscle Memory</h1>
-            <p>Muscle Memory is a dedicated platform designed to enhance your fitness journey and empower you to make informed decisions about your workouts.</p>
+            <p>Muscle Memory is an application designed to enhance your fitness journey and empower you to make informed decisions about your workouts.</p>
 
             <h2>Key Features</h2>
             <h3>Muscle Selection</h3>

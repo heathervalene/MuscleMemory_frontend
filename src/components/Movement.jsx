@@ -45,7 +45,7 @@ const Movement = () => {
                     <div>{movement.workoutType}</div>
                 </div>
             ) : (
-                <p>Loading movement details...</p>
+                <p>Loading movements...</p>
             )}
             <Link to='/musclegroup'>Back to Muscle Map</Link>
         </div>

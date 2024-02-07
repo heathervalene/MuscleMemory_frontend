@@ -7,11 +7,12 @@ const AddWorkout = () => {
 
     const initialWorkoutState = {
         name: "",
-        muscleGroups: {}, 
+        muscleGroups: {},
+        notes: "", // Add notes to initial state
     };
 
     const [newWorkout, setNewWorkout] = useState(initialWorkoutState);
-    const [muscles, setMuscles] = useState([]); 
+    const [muscles, setMuscles] = useState([]);
 
     useEffect(() => {
         const fetchMuscles = async () => {
@@ -111,6 +112,15 @@ const AddWorkout = () => {
                         </label>
                     </div>
                 ))}
+                <div>
+                    <label htmlFor="notes">Notes:</label>
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        value={newWorkout.notes}
+                        onChange={handleChange}
+                    />
+                </div>
 
                 <button type="submit">Submit</button>
             </form>
@@ -118,5 +128,4 @@ const AddWorkout = () => {
     );
 };
 
-
-export default AddWorkout
+export default AddWorkout;
