@@ -17,6 +17,8 @@ const Movement = () => {
         fetchMovement();
     }, [id])
 
+    console.log("current movement state", movement)
+
     return (
         <div>
             <h1>Movement Details</h1>
