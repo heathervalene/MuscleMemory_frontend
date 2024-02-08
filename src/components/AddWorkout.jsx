@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Client from "../assets/services/api";
 
+
 const AddWorkout = () => {
+
+    let { movementId } = useParams();
   const navigate = useNavigate();
   const [newWorkout, setNewWorkout] = useState({
-    movementId: "",
+    movementId: movementId,
     sets: 0,
     reps: 0,
     weight: 0,
     notes: "",
     date: new Date().toISOString().split('T')[0],
   });
+
   const [movementName, setMovementName] = useState("");
 
   useEffect(() => {
@@ -40,7 +44,7 @@ const AddWorkout = () => {
     } catch (error) {
       console.error("Error adding workout:", error);
     }
-    navigate('/workouts');
+    navigate('/workoverview');
   };
 
   return (

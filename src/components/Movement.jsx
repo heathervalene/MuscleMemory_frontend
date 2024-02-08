@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Client from '../assets/services/api'
-
 
 const Movement = () => {
     let { id } = useParams();
-    const [movement, setMovement] = useState(null);
-    const [selectedType, setSelectedType] = useState('')
+    const [movements, setMovement] = useState([]);
+    const [muscleId, setMuscleId] = useState('');
+    const [selectedType, setSelectedType] = useState('');
 
     const fetchMovement = async () => {
         let url = `/movements/${id}`;
@@ -16,15 +15,23 @@ const Movement = () => {
             url += `?type=${selectedType}`;
         }
     
-        let res = await Client.get(url);
-        setMovement(res.data);
+        try {
+            let res = await Client.get(url);
+
+
+
+
+            setMovement(res.data.movements);
+            setMuscleId(res.data.muscleId);
+        } catch (error) {
+            console.error('Error fetching movement data:', error);
+            // Handle error state or display an error message
+        }
     }
 
     useEffect(() => {
         fetchMovement();
-    }, [id,selectedType])
-
-
+    }, [id, selectedType])
 
     return (
         <div>
@@ -38,19 +45,26 @@ const Movement = () => {
                 <option value="dumbbell">Dumbbell</option>
                 <option value="machine">Machine</option>
             </select>
-            {movement ? (
-                <div>
-                    <h2>{movement.name}</h2>
-                    <div>{movement.description}</div>
-                    <img src={movement.image} alt={movement.name} />
-                    <div>{movement.workoutType}</div>
-                </div>
-            ) : (
+
+            {movements.length > 0 ? (
+           
+                movements.map((movement) => (
+                    <div key={movement.id}>
+                        <h2>{movement.name}</h2>
+                        <div>{movement.description}</div>
+                        <img src={movement.image} alt={movement.name} />
+                        <div>{movement.workoutType}</div>
+                        <Link to={`/addworkout/${movement._id}`}>Add Workout</Link>
+                    </div>
+                ))
+             ) : (
                 <p>Loading movements...</p>
-            )}
+            )} 
+    
             <Link to='/musclegroup'>Back to Muscle Map</Link>
         </div>
-    )
+    );
 }
 
-export default Movement
+export default Movement;
+

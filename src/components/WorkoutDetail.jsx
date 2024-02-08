@@ -3,7 +3,7 @@
 const WorkoutDetail = () => {
     return (
         <div>
-            <h1>My Workouts</h1>
+            <h1>Workout Detail</h1>
         </div>
     )
 }
