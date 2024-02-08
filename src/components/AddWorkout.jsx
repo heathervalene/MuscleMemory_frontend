@@ -49,7 +49,7 @@ const AddWorkout = () => {
 
   return (
     <div>
-      <h2>{movementName ? `Add Workout for ${movementName}` : 'Add Workout'}</h2>
+      <h2>{movementId ? `Add Workout for ${movementId}` : 'Add Workout'}</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="sets">Sets:</label>
         <input

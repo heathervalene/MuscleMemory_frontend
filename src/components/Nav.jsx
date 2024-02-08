@@ -10,7 +10,6 @@ const Nav = ({user, handleLogOut}) => {
                 <li><NavLink to="/about">About</NavLink></li>
                 <li><NavLink to="/musclegroup">Muscle Map</NavLink></li>
                 <li><NavLink to="/resources">Additional Resources</NavLink></li>
-                <li><NavLink to="/addworkout">Add Workout</NavLink></li>
                 <li><NavLink to="/workoutoverview">My Workouts</NavLink></li>
                 <li><NavLink onClick={handleLogOut}>Log Out</NavLink></li>
             </nav>

@@ -58,7 +58,7 @@ const Movement = () => {
                     </div>
                 ))
              ) : (
-                <p>Loading movements...</p>
+                <p>No movements found.</p>
             )} 
     
             <Link to='/musclegroup'>Back to Muscle Map</Link>
