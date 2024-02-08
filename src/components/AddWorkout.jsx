@@ -1,131 +1,101 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Client from "../assets/services/api";
-import { useState, useEffect } from "react";
 
 const AddWorkout = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [newWorkout, setNewWorkout] = useState({
+    movementId: "",
+    sets: 0,
+    reps: 0,
+    weight: 0,
+    notes: "",
+    date: new Date().toISOString().split('T')[0],
+  });
+  const [movementName, setMovementName] = useState("");
 
-    const initialWorkoutState = {
-        name: "",
-        muscleGroups: {},
-        notes: "", // Add notes to initial state
-    };
+  useEffect(() => {
+    if (newWorkout.movementId) {
+      Client.get(`/movements/${newWorkout.movementId}`) 
+        .then(response => {
+          setMovementName(response.data.name);
+        })
+        .catch(error => {
+          console.error('Error fetching movement details:', error);
+        });
+    }
+  }, [newWorkout.movementId]);
 
-    const [newWorkout, setNewWorkout] = useState(initialWorkoutState);
-    const [muscles, setMuscles] = useState([]);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewWorkout({ ...newWorkout, [name]: value });
+  };
 
-    useEffect(() => {
-        const fetchMuscles = async () => {
-            try {
-                const response = await Client.get('/musclegroups');
-                setMuscles(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        fetchMuscles();
-    }, []);
+    try {
+      await Client.post('/workouts', newWorkout);
+      
+    } catch (error) {
+      console.error("Error adding workout:", error);
+    }
+    navigate('/workouts');
+  };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setNewWorkout((prevWorkout) => ({
-            ...prevWorkout,
-            [name]: value,
-        }));
-    };
+  return (
+    <div>
+      <h2>{movementName ? `Add Workout for ${movementName}` : 'Add Workout'}</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="sets">Sets:</label>
+        <input
+          type="number"
+          name="sets"
+          value={newWorkout.sets}
+          onChange={handleChange}
+          required
+        />
 
-    const handleMuscleChange = (muscleId, field, value) => {
-        setNewWorkout((prevWorkout) => ({
-            ...prevWorkout,
-            muscleGroups: {
-                ...prevWorkout.muscleGroups,
-                [muscleId]: {
-                    ...(prevWorkout.muscleGroups[muscleId] || {}),
-                    [field]: value,
-                },
-            },
-        }));
-    };
+        <label htmlFor="reps">Reps:</label>
+        <input
+          type="number"
+          name="reps"
+          value={newWorkout.reps}
+          onChange={handleChange}
+          required
+        />
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+        <label htmlFor="weight">Weight:</label>
+        <input
+          type="number"
+          name="weight"
+          value={newWorkout.weight}
+          onChange={handleChange}
+          required
+        />
 
-        try {
-            await Client.post('/workouts', newWorkout);
-            navigate('/workoutdetail');
-        } catch (error) {
-            console.error(error);
-        }
-    };
+        <label htmlFor="notes">Notes:</label>
+        <textarea
+          name="notes"
+          value={newWorkout.notes}
+          onChange={handleChange}
+        ></textarea>
 
-    return (
-        <div>
-            <h1>Log your Workout</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Workout Name:
-                    <input
-                        type="text"
-                        name="name"
-                        value={newWorkout.name}
-                        onChange={handleChange}
-                    />
-                </label>
+        <label htmlFor="date">Date:</label>
+        <input
+          type="date"
+          name="date"
+          value={newWorkout.date}
+          onChange={handleChange}
+          required
+        />
 
-                {muscles.map((muscle) => (
-                    <div key={muscle._id}>
-                        <label>
-                            {muscle.name} - Sets:
-                            <input
-                                type="number"
-                                name={`muscleGroups.${muscle._id}.sets`}
-                                value={newWorkout.muscleGroups[muscle._id]?.sets || 0}
-                                onChange={(e) =>
-                                    handleMuscleChange(muscle._id, "sets", parseInt(e.target.value, 10))
-                                }
-                            />
-                        </label>
-
-                        <label>
-                            Reps:
-                            <input
-                                type="number"
-                                name={`muscleGroups.${muscle._id}.reps`}
-                                value={newWorkout.muscleGroups[muscle._id]?.reps || 0}
-                                onChange={(e) =>
-                                    handleMuscleChange(muscle._id, "reps", parseInt(e.target.value, 10))
-                                }
-                            />
-                        </label>
-
-                        <label>
-                            Weight:
-                            <input
-                                type="number"
-                                name={`muscleGroups.${muscle._id}.weight`}
-                                value={newWorkout.muscleGroups[muscle._id]?.weight || 0}
-                                onChange={(e) =>
-                                    handleMuscleChange(muscle._id, "weight", parseInt(e.target.value, 10))
-                                }
-                            />
-                        </label>
-                    </div>
-                ))}
-                <div>
-                    <label htmlFor="notes">Notes:</label>
-                    <textarea
-                        id="notes"
-                        name="notes"
-                        value={newWorkout.notes}
-                        onChange={handleChange}
-                    />
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    );
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 };
 
 export default AddWorkout;
+
+

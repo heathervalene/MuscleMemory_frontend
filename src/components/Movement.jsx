@@ -6,16 +6,17 @@ import Client from '../assets/services/api'
 
 const Movement = () => {
     let { id } = useParams();
-    const [movement, setMovement] = useState('');
+    const [movement, setMovement] = useState(null);
     const [selectedType, setSelectedType] = useState('')
 
     const fetchMovement = async () => {
         let url = `/movements/${id}`;
-
-        if(selectedType) {
-            url += `?type=${selectedType}`
+    
+        if (selectedType) {
+            url += `?type=${selectedType}`;
         }
-        let res = await Client.get(`/movements/${id}`);
+    
+        let res = await Client.get(url);
         setMovement(res.data);
     }
 
