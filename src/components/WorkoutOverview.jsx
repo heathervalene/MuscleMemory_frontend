@@ -15,17 +15,9 @@ const WorkoutOverview = () => {
   
     const fetchWorkouts = async () => {
       try {
-
-    
-        const res = await Client.get('/workouts');
-
-        console.log(res.data.movement);
-
+     const res = await Client.get('/workouts');
         setWorkouts(res.data);
         setMovement(res.data.movement);
-
-        
-
       } catch (error) {
         console.error('Error fetching workouts:', error);
       }

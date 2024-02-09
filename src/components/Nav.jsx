@@ -1,37 +1,46 @@
-import { NavLink } from "react-router-dom"
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Nav = ({user, handleLogOut}) => {
 
-    let userOptions
-    if (user) {
-        userOptions = (
-            <nav>
-                <h3>Welcome {user.name}</h3>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/musclegroup">Muscle Map</NavLink></li>
-                <li><NavLink to="/resources">Additional Resources</NavLink></li>
-                <li><NavLink to="/workoutoverview">My Workouts</NavLink></li>
-                <li><NavLink onClick={handleLogOut}>Log Out</NavLink></li>
-            </nav>
-        )
-    }
+const Nav = ({ user, handleLogOut }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const publicOptions = (
-        <nav>
-            <li><NavLink to="/register">Register</NavLink></li>
-            <li><NavLink to="/signin">Sign In</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
-            <li><NavLink to="/musclegroup">Muscle Map</NavLink></li>
-            <li><NavLink to="/resources">Additional Resources</NavLink></li>
-        </nav>
-    )
-    return (
-        <header>
-            <NavLink to="/musclegroup"></NavLink>
-            {user? userOptions : publicOptions}
-        </header>
-       
-    )
-}
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-export default Nav
+  const userOptions = (
+    <nav className={`nav-menu ${isOpen ? 'open' : ''}`}>
+      <div>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/musclegroup">Muscle Map</NavLink>
+        <NavLink to="/resources">Additional Resources</NavLink>
+        <NavLink to="/workoutoverview">My Workouts</NavLink>
+        <NavLink onClick={handleLogOut}>Log Out</NavLink>
+      </div>
+    </nav>
+  );
+
+  const publicOptions = (
+    <nav className={`nav-menu ${isOpen ? 'open' : ''}`}>
+      <div>
+        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/signin">Sign In</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/musclegroup">Muscle Map</NavLink>
+        <NavLink to="/resources">Additional Resources</NavLink>
+      </div>
+    </nav>
+  );
+
+  return (
+    <header>
+      <div className="nav-toggle" onClick={toggleMenu}>
+        ☰
+      </div>
+      {user ? userOptions : publicOptions}
+    </header>
+  );
+};
+
+export default Nav;

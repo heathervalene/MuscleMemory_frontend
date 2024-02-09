@@ -7,6 +7,11 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
+const googleFontsLink = document.createElement('link');
+googleFontsLink.rel = 'stylesheet';
+googleFontsLink.href = 'https://fonts.googleapis.com/css2?family=Lato&display=swap';
+document.head.appendChild(googleFontsLink);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

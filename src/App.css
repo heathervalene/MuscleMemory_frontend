@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #212529;
+    color:white;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #495057;
+    color: white;
+    width: auto;
+  }
+  
+  .nav-toggle {
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-menu.open {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #495057;
+  }
+  
+ 
+  
+  .nav-menu a {
+    margin: 0 50px; 
+    color: white;
+    text-decoration: none;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .nav-menu {
+      display: none;
+    }
+  
+    .nav-toggle {
+      display: block;
+    }
+  }
+
+  /*sign in */
+  .container {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white; 
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
+    
+  }
+
+  @media only screen and (max-width: 600px) {
+    .container {
+        margin: 100px auto; 
+        width: 90%;
+        height: auto; 
+    }
+
+    .form {
+        width: 80%; 
+    }
+
+    
+}
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .label {
+    margin-bottom: 3px;
+    text-align: center;
+  }
+  
+  .input {
+    padding: 5px;
+    margin-left: 5px;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: white;
+    width:100%;
+    
+  }
+  
+  .button {
+    margin-top:8px;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+    width: 175px;
+    border-radius: 10px;
+    background-color: #495057;
+    
+  }
+  
+  .registerLink {
+    margin-top: 10px;
+    
+  }
+
+  .registerLink a {
+   text-decoration: none;
+   color: white;
+    
+  }

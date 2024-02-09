@@ -1,6 +1,7 @@
 import { useState} from "react";
 import { SignInUser } from "../assets/services/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 const SignIn = (props) => {
   
@@ -22,38 +23,50 @@ const SignIn = (props) => {
     }
   
     return (
-      <div className="signin col">
-        <div className="card-overlay centered">
-          <form className="col" onSubmit={handleSubmit}>
-            <div className="input-wrapper">
-              <label htmlFor="email">Email</label>
+        <div className="container">
+          <form onSubmit={handleSubmit} className="form">
+            <div className="formGroup">
+              <label htmlFor="email" className="label">
+                Email
+              </label>
               <input
                 onChange={handleChange}
                 name="email"
                 type="email"
-                placeholder="example@example.com"
+                placeholder=""
                 value={formValues.email}
+                className="input"
                 required
               />
             </div>
-            <div className="input-wrapper">
-              <label htmlFor="password">Password</label>
+            <div className="formGroup">
+              <label htmlFor="password" className="label">
+                Password
+              </label>
               <input
                 onChange={handleChange}
                 type="password"
                 name="password"
                 value={formValues.password}
+                className="input"
                 required
               />
             </div>
-            <button disabled={!formValues.email || !formValues.password}>
+            <button
+              disabled={!formValues.email || !formValues.password}
+              className="button"
+            >
               Sign In
             </button>
           </form>
+          <div className="registerLink">
+            <p>
+              Not a member yet? <Link to="/register">Register here</Link>
+            </p>
+          </div>
         </div>
-      </div>
-    )
-  }
+      );
+    };
   
   export default SignIn
 

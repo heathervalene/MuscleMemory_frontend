@@ -34,12 +34,12 @@ const Register = () => {
     }
   
     return (
-      <div className="signin col">
-        <div className="card-overlay centered">
-          <form className="col" onSubmit={handleSubmit}>
-            <div className="input-wrapper">
-              <label htmlFor="name">Name</label>
-              <input
+      <div className="container" >
+        <div className="form" >
+          <form onSubmit={handleSubmit}>
+            <div className="formGroup" >
+              <label className="label" htmlFor="name">Name</label>
+              <input className="input"
                 onChange={handleChange}
                 name="name"
                 type="text"
@@ -48,9 +48,9 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="input-wrapper">
-              <label htmlFor="email">Email</label>
-              <input
+            <div className="formGroup">
+              <label className="label" htmlFor="email">Email</label>
+              <input className="input"
                 onChange={handleChange}
                 name="email"
                 type="email"
@@ -60,9 +60,9 @@ const Register = () => {
               />
             </div>
   
-            <div className="input-wrapper">
-              <label htmlFor="password">Password</label>
-              <input
+            <div className="formGroup">
+              <label className="label" htmlFor="password">Password</label>
+              <input className="input"
                 onChange={handleChange}
                 type="password"
                 name="password"
@@ -70,9 +70,9 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="input-wrapper">
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
+            <div className="formGroup">
+              <label className="label" htmlFor="confirmPassword">Confirm Password</label>
+              <input className="input"
                 onChange={handleChange}
                 type="password"
                 name="confirmPassword"
@@ -80,7 +80,7 @@ const Register = () => {
                 required
               />
             </div>
-            <button
+            <button className="button"
               disabled={
                 !formValues.email ||
                 (!formValues.password &&
