@@ -6,48 +6,26 @@ const Movement = () => {
     let { id } = useParams();
     const [movements, setMovement] = useState([]);
     const [muscleId, setMuscleId] = useState('');
-    const [selectedType, setSelectedType] = useState('');
+   
 
     const fetchMovement = async () => {
-        let url = `/movements/${id}`;
-    
-        if (selectedType) {
-            url += `?type=${selectedType}`;
-        }
-    
         try {
-            let res = await Client.get(url);
-
-
-
-
+            let res = await Client.get(`/movements/${id}`);
             setMovement(res.data.movements);
             setMuscleId(res.data.muscleId);
         } catch (error) {
             console.error('Error fetching movement data:', error);
-            // Handle error state or display an error message
         }
     }
 
     useEffect(() => {
         fetchMovement();
-    }, [id, selectedType])
+    }, [id])
 
     return (
         <div>
             <h1>Movement Details</h1>
-            <select
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-            >
-                <option value="">All Types</option>
-                <option value="bodyweight">Body Weight</option>
-                <option value="dumbbell">Dumbbell</option>
-                <option value="machine">Machine</option>
-            </select>
-
             {movements.length > 0 ? (
-           
                 movements.map((movement) => (
                     <div key={movement.id}>
                         <h2>{movement.name}</h2>
@@ -58,7 +36,7 @@ const Movement = () => {
                     </div>
                 ))
              ) : (
-                <p>No movements found.</p>
+                <p>Loading...</p>
             )} 
     
             <Link to='/musclegroup'>Back to Muscle Map</Link>

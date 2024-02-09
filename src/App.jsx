@@ -10,7 +10,7 @@ import About from './components/About'
 import MuscleGroup from './components/MuscleGroup'
 import AddWorkout from './components/AddWorkout'
 import WorkoutOverview from './components/WorkoutOverview'
-import WorkoutDetail from './components/WorkoutDetail'
+import Updateworkout from './components/UpdateWorkout'
 import Resources from './components/Resources'
 import Movement from './components/Movement'
 
@@ -64,7 +64,7 @@ function App() {
      <Route path="/movements/:id" element={<Movement />} />
      <Route path ='/addworkout/:movementId' element={<AddWorkout/>} />
      <Route path = '/workoutoverview/' element={<WorkoutOverview />} />
-     <Route path = '/workoutdetail' element={<WorkoutDetail/>} />
+     <Route path = '/updateworkout/:workoutId' element={<Updateworkout/>} />
      <Route path = '/resources' element={<Resources/>} />
     </Routes>
     </main>
