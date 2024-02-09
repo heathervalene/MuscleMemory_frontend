@@ -5,14 +5,14 @@ import Client from '../assets/services/api'
 const Movement = () => {
     let { id } = useParams();
     const [movements, setMovement] = useState([]);
-    const [muscleId, setMuscleId] = useState('');
+    const [muscle, setMuscle] = useState('');
    
 
     const fetchMovement = async () => {
         try {
             let res = await Client.get(`/movements/${id}`);
             setMovement(res.data.movements);
-            setMuscleId(res.data.muscleId);
+            setMuscle(res.data.muscle);
         } catch (error) {
             console.error('Error fetching movement data:', error);
         }
@@ -24,7 +24,7 @@ const Movement = () => {
 
     return (
         <div>
-            <h1>Movement Details</h1>
+            <h1>Movement Details for {muscle.name}</h1>
             {movements.length > 0 ? (
                 movements.map((movement) => (
                     <div key={movement.id}>

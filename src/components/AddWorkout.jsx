@@ -16,13 +16,13 @@ const AddWorkout = () => {
     date: new Date().toISOString().split('T')[0],
   });
 
-  const [movementName, setMovementName] = useState("");
+  const [movement, setMovement] = useState("");
 
   useEffect(() => {
     if (newWorkout.movementId) {
       Client.get(`/movements/${newWorkout.movementId}`) 
         .then(response => {
-          setMovementName(response.data.name);
+          setMovement(response.data.movements);
         })
         .catch(error => {
           console.error('Error fetching movement details:', error);
@@ -49,7 +49,7 @@ const AddWorkout = () => {
 
   return (
     <div>
-      <h2>{movementId ? `Add Workout for ${movementId}` : 'Add Workout'}</h2>
+      <h2>{movement.name ? `Add Workout for ${movement.name}` : 'Add Workout'}</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="sets">Sets:</label>
         <input

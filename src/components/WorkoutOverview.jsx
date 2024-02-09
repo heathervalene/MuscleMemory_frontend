@@ -10,13 +10,22 @@ const WorkoutOverview = () => {
     const [workouts, setWorkouts] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedWorkout, setSelectedWorkout] = useState(null);
-    const [movementName, setMovementName] = useState('');
+    const [movement, setMovement] = useState([]);
 
   
     const fetchWorkouts = async () => {
       try {
+
+    
         const res = await Client.get('/workouts');
+
+        console.log(res.data.movement);
+
         setWorkouts(res.data);
+        setMovement(res.data.movement);
+
+        
+
       } catch (error) {
         console.error('Error fetching workouts:', error);
       }
@@ -45,10 +54,11 @@ const WorkoutOverview = () => {
   
     return (
       <div>
+        
         <h1>My Workouts</h1>
         {workouts.map((workout) => (
           <div key={workout._id}>
-            <div>Movement: {workout.movementId}</div>
+            <div>Movement: {workout.movement.name}</div>
             <div>sets: {workout.sets}</div>
             <div>reps: {workout.reps}</div>
             <div>weight: {workout.weight} lbs</div>
