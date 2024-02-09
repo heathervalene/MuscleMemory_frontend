@@ -44,7 +44,7 @@ const AddWorkout = () => {
     } catch (error) {
       console.error("Error adding workout:", error);
     }
-    navigate('/musclegroups');
+    navigate('/workoutoverview');
   };
 
   return (
