@@ -34,6 +34,8 @@ const Register = () => {
     }
   
     return (
+        <div>
+            <h1 className="login-title">Muscle Memory</h1>
       <div className="container" >
         <div className="form" >
           <form onSubmit={handleSubmit}>
@@ -91,6 +93,7 @@ const Register = () => {
             </button>
           </form>
         </div>
+      </div>
       </div>
     )
   }

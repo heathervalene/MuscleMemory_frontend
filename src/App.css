@@ -56,7 +56,15 @@ header {
     }
   }
 
-  /*sign in */
+  /*sign in & Register */
+
+.login-title {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 60px;
+}
+
+
   .container {
     margin: 100px auto;
     display: flex;

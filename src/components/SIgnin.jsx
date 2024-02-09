@@ -23,6 +23,8 @@ const SignIn = (props) => {
     }
   
     return (
+        <div>
+            <h1 className="login-title">Muscle Memory</h1>
         <div className="container">
           <form onSubmit={handleSubmit} className="form">
             <div className="formGroup">
@@ -64,6 +66,7 @@ const SignIn = (props) => {
               Not a member yet? <Link to="/register">Register here</Link>
             </p>
           </div>
+        </div>
         </div>
       );
     };
