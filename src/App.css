@@ -28,19 +28,12 @@ header {
     justify-content: space-between;
     align-items: center;
   }
-  
-  .nav-menu.open {
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #495057;
-  }
-  
+
  
-  
+  .header.menu-open .logo {
+    margin-left: 200px;
+  }
+
   .nav-menu a {
     margin: 0 50px; 
     color: white;
@@ -49,16 +42,39 @@ header {
 
   .logo {
     width: 50px;
+    transition: margin-left 0.3s ease;
   }
   
+  .logo.hidden {
+    display: none; /* Hide logo when menu is open */
+  }
+  
+
+
   @media only screen and (max-width: 600px) {
     .nav-menu {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #495057;
+      display: none; 
+    }
+  
+    .nav-menu.open {
+      display: flex; 
+    
     }
   
     .nav-toggle {
       display: block;
     }
+    .header.menu-open .logo {
+        margin-left: auto; 
+      }
   }
 
   /*sign in & Register */
@@ -191,6 +207,11 @@ header {
 
 h3 {
     margin-top:30px;
+  
+}
+
+.resource-title {
+    text-align: center;
 }
 
 /*Movement page*/
@@ -241,26 +262,33 @@ h3 {
     margin: 40px 0px 10px 200px;
   }
 
+  .add-button {
+    margin-top:8px;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+    width: 175px;
+    border-radius: 10px;
+    background-color: #495057;
+    
+  }
+
   .add-movement a {
-    color: #adb5bd;
+    color: white;
     font-size: 20px;
     text-decoration: none;
 
   }
 
-  .add-movement:hover {
-    color: white;
-
-  }
   
   .workout-type.body-weight {
-    border-color: green;
+    border-color: #ffdc5e;
+    background-color: #ffdc5e;
   }
   
   .workout-type.dumbbell {
     border-color: #7ae582;
     background-color: #7ae582;
-    color: black;
   }
   
   .workout-type.machine {
@@ -271,11 +299,25 @@ h3 {
   @media (max-width: 768px) {
     .movement-item {
         flex-direction: column; 
+        margin: 10px;
     }
 
     .movement-item img {
-        margin-bottom: 20px;
+    margin: 5px;
     }
+
+    .movement-details {
+        margin: 5px;
+        text-align: center;
+    }
+
+    .add-movement {
+        text-align: center;
+        margin: 10px;
+        
+      }
+    
+     
 }
 
 /*add workout form*/

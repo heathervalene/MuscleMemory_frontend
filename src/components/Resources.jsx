@@ -5,7 +5,7 @@ const Resources = () => {
         <div>
             <div className='resources-container'>
             <img className="about-image" src="https://i.imgur.com/PJZEuw0.png" alt="About" />
-            <h1>Additional Resources</h1>
+            <h1 className="resource-title">Additional Resources</h1>
             <h3>TDEE Calculator</h3>
             <p>Use the TDEE calculator to learn your Total Daily Energy Expenditure, a measure of how many calories you burn per day. This calorie calculator will also display your BMI, BMR, Macros & many other useful statistics</p>
             <a href="https://tdeecalculator.net/">TDEE Calculator</a>

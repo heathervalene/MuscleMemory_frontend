@@ -32,13 +32,13 @@ const Movement = () => {
               <div className="movement-details">
                 <h2>
                   {movement.name}
-                  <span className={`workout-type ${movement.workoutType.toLowerCase()}`}>
+                  <span className={`workout-type ${movement.workoutType.toLowerCase().replace(/\s+/g, '-')}`}>
                     {movement.workoutType}
                   </span>
                 </h2>
                 <div>{movement.description}</div>
                 <div className="add-movement">
-                <Link to={`/addworkout/${movement._id}`} >
+                <Link to={`/addworkout/${movement._id}`} className="add-button">
                   Add Workout
                 </Link>
                 </div>

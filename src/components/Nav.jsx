@@ -6,7 +6,7 @@ const Nav = ({ user, handleLogOut }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
   const userOptions = (
@@ -34,11 +34,11 @@ const Nav = ({ user, handleLogOut }) => {
   );
 
   return (
-    <header>
+    <header className={`header ${isOpen ? 'menu-open' : ''}`}>
       <div className="nav-toggle" onClick={toggleMenu}>
         ☰
       </div>
-      <img className="logo" src="https://i.imgur.com/PJZEuw0.png" alt="logo" />
+      <img className={`logo ${isOpen ? 'hidden' : ''}`} src="https://i.imgur.com/PJZEuw0.png" alt="logo" />
       {user ? userOptions : publicOptions}
     </header>
   );
