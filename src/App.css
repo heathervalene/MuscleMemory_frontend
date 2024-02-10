@@ -207,18 +207,24 @@ h3 {
   
   .movement-item {
     display: flex;
-    margin-bottom: 40px;
+    margin: 15px;
+    border: 2px solid black;
   }
   
   .movement-item img {
     max-width: 300px; 
     margin-right: 20px;
-    border: 3px solid black;
-    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
+    border: 2px solid black;
+    
   }
   
   .movement-details {
     flex: 1;
+    
+  }
+
+  .movement-img {
+    margin:5px;
   }
   
   .workout-type {
@@ -232,7 +238,7 @@ h3 {
   }
 
   .add-movement  {
-    margin: 40px 0px 0px 200px;
+    margin: 40px 0px 10px 200px;
   }
 
   .add-movement a {

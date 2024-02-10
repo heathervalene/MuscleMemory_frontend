@@ -28,7 +28,7 @@ const Movement = () => {
         {movements.length > 0 ? (
           movements.map((movement) => (
             <div key={movement.id} className="movement-item">
-              <img src={movement.image} alt={movement.name} />
+              <img src={movement.image} alt={movement.name} className="movement-img" />
               <div className="movement-details">
                 <h2>
                   {movement.name}
@@ -48,7 +48,7 @@ const Movement = () => {
         ) : (
           <p>Loading...</p>
         )}
-        <Link to="/musclegroup">Back to Muscle Map</Link>
+        <Link to="/musclegroup" className="back-link">Back to Muscle Map</Link>
       </div>
     );
 }
