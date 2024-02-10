@@ -38,6 +38,7 @@ const Nav = ({ user, handleLogOut }) => {
       <div className="nav-toggle" onClick={toggleMenu}>
         ☰
       </div>
+      <img className="logo" src="https://i.imgur.com/PJZEuw0.png" alt="logo" />
       {user ? userOptions : publicOptions}
     </header>
   );

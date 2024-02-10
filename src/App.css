@@ -45,6 +45,10 @@ header {
     color: white;
     text-decoration: none;
   }
+
+  .logo {
+    width: 50px;
+  }
   
   @media only screen and (max-width: 600px) {
     .nav-menu {
@@ -144,3 +148,46 @@ header {
    color: white;
     
   }
+
+  .forgot-password {
+    text-align: center;
+  }
+
+  /*About page*/
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+}
+
+.about-image {
+    height: 70px;
+}
+
+/*Resource page*/
+
+.resources-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+
+}
+
+.resources-container a {
+    color: #adb5bd;
+    font-size: 15px;
+}
+
+.resources-container a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+h3 {
+    margin-top:30px;
+}
