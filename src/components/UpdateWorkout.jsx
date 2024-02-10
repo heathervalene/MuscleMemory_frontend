@@ -9,6 +9,7 @@ const [updatedWorkout, setUpdatedWorkout] = useState({
     sets: workout.sets,
     reps: workout.reps,
     weight: workout.weight,
+    notes: workout.notes,
     date: workout.date.slice(0, 10),
   });
 
@@ -90,6 +91,16 @@ const [updatedWorkout, setUpdatedWorkout] = useState({
               required
             />
         </div>
+        <div className="formGroup">
+  <label htmlFor="notes" className="label">Notes:</label>
+  <textarea
+    className="input"
+    name="notes"
+    value={updatedWorkout.notes}
+    onChange={handleChange}
+    required
+  />
+</div>
         <div className="formGroup">
             <label htmlFor="date" className="label">Date:</label>
             <input className="input"

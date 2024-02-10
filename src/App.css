@@ -334,10 +334,16 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+   
   }
   
   .workout-item > div {
     margin-bottom: 5px;
+  }
+
+  .workout-notes {
+   width: 200px;
+
   }
   
   .workout-item button {

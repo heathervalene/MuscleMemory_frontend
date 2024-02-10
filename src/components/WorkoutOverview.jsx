@@ -63,6 +63,7 @@ const WorkoutOverview = () => {
             <div>sets: {workout.sets}</div>
             <div>reps: {workout.reps}</div>
             <div>weight: {workout.weight} lbs</div>
+            <div className="workout-notes">Notes: {workout.notes}</div>
            
             <button onClick={() => deleteWorkout(workout._id)} className="delete-button">Delete</button>
             <button onClick={() => openUpdateWorkout(workout)} className="delete-button">Update</button>
