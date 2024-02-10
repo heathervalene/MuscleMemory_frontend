@@ -8,6 +8,7 @@ body {
 
 header {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 8px;
@@ -190,4 +191,80 @@ header {
 
 h3 {
     margin-top:30px;
+}
+
+/*Movement page*/
+
+.movement-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 50px;
+}
+
+.movement-container {
+    padding: 50px;
+  }
+  
+  .movement-item {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  
+  .movement-item img {
+    max-width: 300px; 
+    margin-right: 20px;
+    border: 3px solid black;
+    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
+  }
+  
+  .movement-details {
+    flex: 1;
+  }
+  
+  .workout-type {
+    border: 2px solid;
+    padding: 5px;
+    display: inline-block;
+    margin-left: 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: black;
+  }
+
+  .add-movement {
+    color: #adb5bd;
+    font-size: 20px;
+    margin: 40px 0px 0px 200px;
+    text-decoration: none;
+    
+  }
+
+  .add-movement:hover {
+    color: white;
+
+  }
+  
+  .workout-type.body-weight {
+    border-color: green;
+  }
+  
+  .workout-type.dumbbell {
+    border-color: #7ae582;
+    background-color: #7ae582;
+    color: black;
+  }
+  
+  .workout-type.machine {
+    border-color: #1e96fc;
+    background-color: #1e96fc;
+  }
+
+  @media (max-width: 768px) {
+    .movement-item {
+        flex-direction: column; 
+    }
+
+    .movement-item img {
+        margin-bottom: 20px;
+    }
 }

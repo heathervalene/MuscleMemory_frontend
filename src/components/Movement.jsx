@@ -23,24 +23,31 @@ const Movement = () => {
     }, [id])
 
     return (
-        <div>
-            <h1>Movement Details for {muscle.name}</h1>
-            {movements.length > 0 ? (
-                movements.map((movement) => (
-                    <div key={movement.id}>
-                        <h2>{movement.name}</h2>
-                        <div>{movement.description}</div>
-                        <img src={movement.image} alt={movement.name} />
-                        <div>{movement.workoutType}</div>
-                        <Link to={`/addworkout/${movement._id}`}>Add Workout</Link>
-                    </div>
-                ))
-             ) : (
-                <p>Loading...</p>
-            )} 
-    
-            <Link to='/musclegroup'>Back to Muscle Map</Link>
-        </div>
+        <div className="movement-container">
+        <h1 className="movement-title"> {muscle.name}</h1>
+        {movements.length > 0 ? (
+          movements.map((movement) => (
+            <div key={movement.id} className="movement-item">
+              <img src={movement.image} alt={movement.name} />
+              <div className="movement-details">
+                <h2>
+                  {movement.name}
+                  <span className={`workout-type ${movement.workoutType.toLowerCase()}`}>
+                    {movement.workoutType}
+                  </span>
+                </h2>
+                <div>{movement.description}</div>
+                <Link to={`/addworkout/${movement._id}`} className="add-movement">
+                  Add Workout
+                </Link>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+        <Link to="/musclegroup">Back to Muscle Map</Link>
+      </div>
     );
 }
 
