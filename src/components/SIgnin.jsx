@@ -2,6 +2,7 @@ import { useState} from "react";
 import { SignInUser } from "../assets/services/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
+import  UpdatePassword  from './UpdatePassword';
 
 const SignIn = (props) => {
   
@@ -63,8 +64,11 @@ const SignIn = (props) => {
           </form>
           <div className="registerLink">
             <p>
-              Not a member yet? <Link to="/register">Register here</Link>
+              Not a member yet?  <Link to="/register">Register here</Link>
             </p>
+            <p className="forgot-password">
+             <Link to="/update-password">Forgot Password</Link>
+          </p>
           </div>
         </div>
         </div>

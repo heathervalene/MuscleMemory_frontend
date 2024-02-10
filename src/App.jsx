@@ -5,6 +5,7 @@ import './App.css'
 import Client from './assets/services/api'
 import Register from './components/Register'
 import SignIn from './components/SIgnin'
+import UpdatePassword from './components/UpdatePassword'
 import Nav from './components/Nav'
 import About from './components/About'
 import MuscleGroup from './components/MuscleGroup'
@@ -13,6 +14,7 @@ import WorkoutOverview from './components/WorkoutOverview'
 import Updateworkout from './components/UpdateWorkout'
 import Resources from './components/Resources'
 import Movement from './components/Movement'
+
 
 function App() {
 
@@ -60,6 +62,7 @@ function App() {
      <Route path ='/about' element={<About/>} />
      <Route path="/signin" element={<SignIn setUser={setUser} />} />
      <Route path="/register" element={<Register />} />
+     <Route path="/update-password" element={<UpdatePassword />} />
      <Route path ='/musclegroup' element={<MuscleGroup muscleGroups={muscleGroups}/>} />
      <Route path="/movements/:id" element={<Movement />} />
      <Route path ='/addworkout/:movementId' element={<AddWorkout/>} />
