@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Client from "../assets/services/api";
+import {Link} from "react-router-dom";
 
 
 const AddWorkout = () => {
@@ -49,53 +50,63 @@ const AddWorkout = () => {
 
   return (
     <div>
-      <h2>{movement.name ? `Add Workout for ${movement.name}` : 'Add Workout'}</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="sets">Sets:</label>
-        <input
+        <div className="form-container">
+      <h2 className="form-title">{movement.name ? `Add Workout for ${movement.name}` : 'Add Workout'}</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="formGroup">
+        <label htmlFor="sets" className="label">Sets:</label>
+        <input className="input"
           type="number"
           name="sets"
           value={newWorkout.sets}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="reps">Reps:</label>
-        <input
+            </div>
+            <div className="formGroup">
+        <label htmlFor="reps" className="label">Reps:</label>
+        <input className="input"
           type="number"
           name="reps"
           value={newWorkout.reps}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="weight">Weight:</label>
-        <input
+    </div>
+    <div className= "formGroup">
+        <label htmlFor="weight" className="label">Weight:</label>
+        <input className="input"
           type="number"
           name="weight"
           value={newWorkout.weight}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="notes">Notes:</label>
-        <textarea
+    </div>
+    <div className="formGroup">
+        <label htmlFor="notes" className="label">Notes:</label>
+        <textarea className="textarea-input"
           name="notes"
           value={newWorkout.notes}
           onChange={handleChange}
         ></textarea>
-
-        <label htmlFor="date">Date:</label>
-        <input
+    </div>
+    <div className="formGroup">
+        <label htmlFor="date" className="label">Date:</label>
+        <input className="input"
           type="date"
           name="date"
           value={newWorkout.date}
           onChange={handleChange}
           required
         />
-
-        <button type="submit">Submit</button>
+</div>
+        <button type="submit" className="button">Submit</button>
       </form>
+      <Link to="/musclegroup" className="back-link">Back to Muscle Map</Link>
+      </div>
+      
+      
     </div>
   );
 };

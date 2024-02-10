@@ -231,12 +231,15 @@ h3 {
     color: black;
   }
 
-  .add-movement {
+  .add-movement  {
+    margin: 40px 0px 0px 200px;
+  }
+
+  .add-movement a {
     color: #adb5bd;
     font-size: 20px;
-    margin: 40px 0px 0px 200px;
     text-decoration: none;
-    
+
   }
 
   .add-movement:hover {
@@ -267,4 +270,39 @@ h3 {
     .movement-item img {
         margin-bottom: 20px;
     }
+}
+
+/*add workout form*/
+
+.form-container {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white; 
+    border-radius: 20px;
+    width: 400px;
+    height: 600px;
+    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
+}
+
+.textarea-input {
+    padding: 5px;
+    margin: 5px 0px 0px 5px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    width:100%;
+}
+
+.back-link {
+    color: #adb5bd;
+    font-size: 20px;
+    text-decoration: none;
+    margin-top: 50px;
+}
+
+.back-link:hover {
+    color: white;
 }

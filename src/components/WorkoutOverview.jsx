@@ -47,7 +47,7 @@ const WorkoutOverview = () => {
     return (
       <div>
         
-        <h1>My Workouts</h1>
+        < h1>My Workouts</h1>
         {workouts.map((workout) => (
           <div key={workout._id}>
             <div>Movement: {workout.movement.name}</div>

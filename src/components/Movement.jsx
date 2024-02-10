@@ -37,9 +37,11 @@ const Movement = () => {
                   </span>
                 </h2>
                 <div>{movement.description}</div>
-                <Link to={`/addworkout/${movement._id}`} className="add-movement">
+                <div className="add-movement">
+                <Link to={`/addworkout/${movement._id}`} >
                   Add Workout
                 </Link>
+                </div>
               </div>
             </div>
           ))
