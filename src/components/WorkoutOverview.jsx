@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
 import Client from '../assets/services/api'
 import UpdateWorkout from './UpdateWorkout';
+import { Line } from 'react-chartjs-2';
 
 
 const WorkoutOverview = () => {
@@ -12,7 +13,7 @@ const WorkoutOverview = () => {
     const [selectedWorkout, setSelectedWorkout] = useState(null);
     const [movement, setMovement] = useState([]);
 
-  
+ 
     const fetchWorkouts = async () => {
       try {
      const res = await Client.get('/workouts');
@@ -46,6 +47,8 @@ const WorkoutOverview = () => {
       fetchWorkouts();
     }, []);
 
+
+
  
   
     return (
@@ -73,6 +76,7 @@ const WorkoutOverview = () => {
         />
         )}
         </div>
+        
       </div>
     );
   };

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import Client from '../assets/services/api'
 
+
 const UpdateWorkout = ({workout, closeModal, setWorkouts}) => {
 
 const [updatedWorkout, setUpdatedWorkout] = useState({
@@ -33,55 +34,79 @@ const [updatedWorkout, setUpdatedWorkout] = useState({
     }
   };
 
+  const customModalStyles = {
+    content: {
+      maxWidth: '400px', 
+      margin: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      border: '1px solid white',
+      borderRadius: '20px',
+      height: '500px',
+      backgroundColor: '#212529', 
+    },
+  };
+
 
 
     return (
         <Modal
           isOpen={true} 
           onRequestClose={closeModal}
+          style={customModalStyles}
         >
-          <h2>Update Workout</h2>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="sets">Sets:</label>
-            <input
+            <div>
+          <h2 className="overview-title">Update Workout</h2>
+          <form onSubmit={handleSubmit} className="form">
+            <div className="formGroup">
+            <label htmlFor="sets" className="label">Sets:</label>
+            <input className="input"
               type="number"
               name="sets"
               value={updatedWorkout.sets}
               onChange={handleChange}
               required
             />
-    
-            <label htmlFor="reps">Reps:</label>
-            <input
+            </div>
+            <div className="formGroup">
+            <label htmlFor="reps" className="label">Reps:</label>
+            <input className="input"
               type="number"
               name="reps"
               value={updatedWorkout.reps}
               onChange={handleChange}
               required
             />
-    
-            <label htmlFor="weight">Weight:</label>
-            <input
+        </div>
+        <div className="formGroup">
+            <label htmlFor="weight" className="label">Weight:</label>
+            <input className="input"
               type="number"
               name="weight"
               value={updatedWorkout.weight}
               onChange={handleChange}
               required
             />
-    
-            <label htmlFor="date">Date:</label>
-            <input
+        </div>
+        <div className="formGroup">
+            <label htmlFor="date" className="label">Date:</label>
+            <input className="input"
               type="date"
               name="date"
               value={updatedWorkout.date}
               onChange={handleChange}
               required
             />
-    
-            <button type="submit">Update</button>
-            <button type="button" onClick={closeModal}>Cancel</button>
+           
+        </div>
+            <button className="button" type="submit">Update</button>
+            <button className="button" type="button" onClick={closeModal}>Cancel</button>
           </form>
+          </div>
         </Modal>
+       
       );
     };
 
