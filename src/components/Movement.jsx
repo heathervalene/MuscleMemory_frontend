@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Client from '../assets/services/api'
 
-const Movement = () => {
+const Movement = ({user}) => {
     let { id } = useParams();
     const [movements, setMovement] = useState([]);
     const [muscle, setMuscle] = useState('');
@@ -38,9 +38,13 @@ const Movement = () => {
                 </h2>
                 <div>{movement.description}</div>
                 <div className="add-movement">
+                    {user ? (
                 <Link to={`/addworkout/${movement._id}`} className="add-button">
                   Add Workout
                 </Link>
+                    ) : (
+                        <span className="add-button-disabled">Login to log your workouts!</span>
+                      )}
                 </div>
               </div>
             </div>
