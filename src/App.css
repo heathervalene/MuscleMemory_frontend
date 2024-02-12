@@ -31,7 +31,7 @@ header {
 
  
   .header.menu-open .logo {
-    margin-left: 200px;
+    display: none;
   }
 
   .nav-menu a {
@@ -42,27 +42,28 @@ header {
 
   .logo {
     width: 50px;
-    transition: margin-left 0.3s ease;
+   
   }
   
-  .logo.hidden {
-    display: none; /* Hide logo when menu is open */
-  }
-  
-
+ 
 
   @media only screen and (max-width: 600px) {
     .nav-menu {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
       position: absolute;
-      top: 60px;
+      top: 38px;
       left: 0;
       width: 100%;
       background-color: #495057;
       display: none; 
+      z-index: 5;
     }
+
+    .nav-menu div {
+      font-size: 8px;
+      text-align: center;
+      margin: 3px;
+      
+      }
   
     .nav-menu.open {
       display: flex; 
@@ -72,9 +73,7 @@ header {
     .nav-toggle {
       display: block;
     }
-    .header.menu-open .logo {
-        margin-left: auto; 
-      }
+  
   }
 
   /*sign in & Register */
@@ -355,6 +354,20 @@ h3 {
     color: white;
 }
 
+@media (max-width: 768px) { 
+ .form-container {
+ margin: 100px auto; 
+ width: 90%;
+ height: auto; 
+}
+
+.form {
+ width: 80%; 
+}
+
+
+}
+
 /*Workout Overview*/
 
 .overview-title {
@@ -401,9 +414,55 @@ h3 {
     margin-top:8px;
     color: white;
     padding: 6px;
+    margin-left: auto;
     cursor: pointer;
     border-radius: 10px;
     background-color: #495057;
   }
+
+  @media (max-width: 768px) {
+    body {
+      margin: 0; 
+      padding: 0; 
+    }
+  
+    .overview-title {
+      font-size: 20px;
+    }
+  
+    .workout-list {
+      width: 100%; 
+      margin: 0;
+      padding: 0; 
+      box-sizing: border-box;
+      flex-direction: column;
+      align-items: center;
+    
+    }
+  
+    .workout-item {
+      font-size: 12px;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      text-align: center;
+    
+    }
+  
+    .workout-notes {
+      width: 100%;
+    }
+  
+    .button-container {
+       display: flex;
+        justify-content: center;
+
+          }
+        
+      
+  }
+
+
 
 

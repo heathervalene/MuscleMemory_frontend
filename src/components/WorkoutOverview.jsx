@@ -59,14 +59,16 @@ const WorkoutOverview = () => {
         {workouts.map((workout) => (
           <div key={workout._id} className="workout-item">
              <div>{new Date(workout.date).toLocaleDateString()}</div>
-            <div>Movement: {workout.name}</div>
+            <div className="workout-notes">Movement: {workout.movement.name}</div>
             <div>sets: {workout.sets}</div>
             <div>reps: {workout.reps}</div>
             <div>weight: {workout.weight} lbs</div>
             <div className="workout-notes">Notes: {workout.notes}</div>
            
+           <div className="button-container">
             <button onClick={() => deleteWorkout(workout._id)} className="delete-button">Delete</button>
             <button onClick={() => openUpdateWorkout(workout)} className="delete-button">Update</button>
+            </div>
           </div>
         ))}
         {isModalOpen && selectedWorkout && (
