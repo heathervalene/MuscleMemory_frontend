@@ -228,6 +228,7 @@ h3 {
   
   .muscle-box {
     margin: 10px; 
+    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
     
   }
   
@@ -270,6 +271,7 @@ h3 {
     display: flex;
     margin: 15px;
     border: 2px solid black;
+    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
   }
   
   .movement-item img {
@@ -424,12 +426,13 @@ h3 {
   }
   
   .workout-item {
-    border: 1px solid #ccc;
+    border: 1px solid black;
     padding: 10px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
    
   }
   
