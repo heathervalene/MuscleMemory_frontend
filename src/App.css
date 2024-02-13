@@ -500,17 +500,19 @@ h3 {
       font-size: 20px;
     }
 
-    .biggest-lift {
-        width: 100%;
-        font-size: 20px;
-        padding: 3px;
+    .overview-stats {
+        padding: 2px;
+        flex-direction: column;
     }
 
-    .last-workout {
-        width: 100%;
-        font-size: 20px;
-        padding: 3px;
+    .widget {
+    font-size: 10px;
+    margin: 2px;
     }
+
+    }
+
+   
   
     .workout-list {
       width: 100%; 
