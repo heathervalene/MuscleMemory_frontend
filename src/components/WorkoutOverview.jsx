@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import {  useParams } from 'react-router-dom'
 import Client from '../assets/services/api'
 import UpdateWorkout from './UpdateWorkout';
+import { LineChart, XAxis, YAxis, Line, CartesianGrid, Tooltip, Legend, Bar, BarChart, LabelList } from 'recharts';
+
 
 
 
@@ -15,7 +17,6 @@ const WorkoutOverview = () => {
     const [heaviestWorkout, setHeaviestWorkout] = useState(null);
     const [totalSets, setTotalSets] = useState(0);
     const [totalReps, setTotalReps] = useState(0);
-    const [workoutFrequency, setWorkoutFrequency] = useState(0);
     const [totalWorkouts, setTotalWorkouts] = useState(0);
     const [today, setToday] = useState(new Date());
 
@@ -46,11 +47,6 @@ const WorkoutOverview = () => {
       setTotalReps(totalReps);
 
      
-      const firstWorkoutDate = res.data.length > 0 ? new Date(res.data[res.data.length - 1].date) : new Date();
-      const totalDays = Math.round(Math.abs((today - firstWorkoutDate) / (24 * 60 * 60 * 1000)));
-      const workoutFrequency = res.data.length > 1 ? Math.round(totalDays / (res.data.length - 1)) : 0;
-
-      setWorkoutFrequency(workoutFrequency);
 
      
       setTotalWorkouts(res.data.length);
@@ -59,7 +55,7 @@ const WorkoutOverview = () => {
         console.error('Error fetching workouts:', error);
       }
     };
-    
+
 
     const deleteWorkout = async (id) => {
       try {
@@ -87,7 +83,33 @@ const WorkoutOverview = () => {
   
     return (
         <div>
-          <h1 className="overview-title">My Workouts</h1>
+          <h1 className="overview-title">My Workout Overview</h1>
+          <div className="line-chart-container">
+            <div>Total Reps/Sets over time</div>
+        <LineChart width={700} height={300} data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="sets" stroke="#8884d8" />
+          <Line type="monotone" dataKey="reps" stroke="#82ca9d" />
+        </LineChart>
+      </div>
+      <div className="bar-chart-container">
+        <div>Weights per Movement</div>
+        <BarChart width={700} height={400} data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <XAxis dataKey="movement.name" />
+          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="weight" fill="#8884d8">
+            <LabelList dataKey="movement.name" position="top" />
+          </Bar>
+        </BarChart>
+      </div>
+          
           <div className="overview-stats">
             
             {heaviestWorkout !== null && (
@@ -101,9 +123,7 @@ const WorkoutOverview = () => {
             <div className="widget">
               <div>Total Reps: {totalReps}</div>
             </div>
-            <div className="widget">
-              <div>Workout Frequency: {workoutFrequency} days per workout</div>
-            </div>
+            
             <div className="widget">
               <div>Total Workouts: {totalWorkouts}</div>
             </div>
