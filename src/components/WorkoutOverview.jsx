@@ -19,6 +19,8 @@ const WorkoutOverview = () => {
     const [totalReps, setTotalReps] = useState(0);
     const [totalWorkouts, setTotalWorkouts] = useState(0);
     const [today, setToday] = useState(new Date());
+    const [selectedMovement, setSelectedMovement] = useState(null);
+
 
 
 
@@ -79,11 +81,24 @@ const WorkoutOverview = () => {
         setToday(new Date());
       }, []);
 
+      const uniqueMovements = [...new Set(workouts.map((workout) => workout.movement.name))];
+
+      const handleMovementChange = (event) => {
+        const selectedMovementName = event.target.value;
+        setSelectedMovement(selectedMovementName);
+      };
+    
+      const filteredWorkouts = selectedMovement
+        ? workouts.filter((workout) => workout.movement.name === selectedMovement)
+        : workouts;
  
+        const sortedWorkouts = [...workouts].sort((a, b) => new Date(a.date) - new Date(b.date));
+
   
     return (
         <div>
           <h1 className="overview-title">My Workout Overview</h1>
+          <div className="data-container">
           <div className="line-chart-container">
             <div>Total Reps/Sets over time</div>
         <LineChart width={700} height={300} data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -98,18 +113,31 @@ const WorkoutOverview = () => {
       </div>
       <div className="bar-chart-container">
         <div>Weights per Movement</div>
-        <BarChart width={700} height={400} data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <XAxis dataKey="movement.name" />
+        <div className="dropdown-container">
+        <label>Select a Workout:</label>
+        <select onChange={handleMovementChange}>
+          <option value="">All Workouts</option>
+          {uniqueMovements.map((movement, index) => (
+            <option key={index} value={movement}>
+              {movement}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="bar-chart-container">
+      <BarChart width={600} height={300} data={filteredWorkouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
           <Bar dataKey="weight" fill="#8884d8">
-            <LabelList dataKey="movement.name" position="top" />
+            <LabelList dataKey="weight" position="top" />
           </Bar>
         </BarChart>
       </div>
-          
+      </div>
+          </div>
           <div className="overview-stats">
             
             {heaviestWorkout !== null && (
@@ -128,8 +156,10 @@ const WorkoutOverview = () => {
               <div>Total Workouts: {totalWorkouts}</div>
             </div>
           </div>
+          
+
           <div className="workout-list">
-            {workouts.map((workout) => (
+            {sortedWorkouts.map((workout) => (
               <div key={workout._id} className="workout-item">
                 <div>{new Date(workout.date).toLocaleDateString()}</div>
                 <div className="workout-notes">Movement: {workout.movement.name}</div>
@@ -151,6 +181,7 @@ const WorkoutOverview = () => {
               />
             )}
           </div>
+          
         </div>
       );
             }
