@@ -21,7 +21,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 23px;
+    font-size: 16px;
   }
 
   .nav-menu div {
@@ -56,8 +56,10 @@ header {
       position: fixed;
       bottom: 0;
       width: 100%;
-      height: 30px;
-      padding:2px;
+      height: auto;
+      padding: 8px;
+     
+     
     }
 
 .logo {
@@ -66,19 +68,29 @@ header {
   
     .nav-menu {
       width: 100%;
-      font-size: 10px;
+      max-width: 400px;
+      font-size: 9px;
       margin:2px;
+     
       
     }
   
     .nav-menu div {
+        display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
     
     }
 
     .nav-menu a {
-        margin:2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        margin: 1px;
+        color: white;
+        text-decoration: none;
+      
     }
   
  
@@ -86,16 +98,11 @@ header {
         display: block;
         width: 20px; 
         height: 20px;
+        
       
     }
   }
 
-
-  
-  
-
-  
-  
 
   /*sign in & Register */
 
@@ -104,7 +111,6 @@ header {
     margin-top: 40px;
     font-size: 60px;
 }
-
 
   .container {
     margin: 100px auto;
@@ -120,15 +126,23 @@ header {
     
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     .container {
-        margin: 100px auto; 
+        margin: 75px auto; 
         width: 90%;
         height: auto; 
     }
 
     .form {
         width: 80%; 
+    }
+
+    .login-title {
+        font-size: 25px;
+    }
+
+    button {
+        margin: 5px;
     }
 
     
@@ -204,6 +218,21 @@ header {
     height: 70px;
 }
 
+@media only screen and (max-width: 768px) {
+    .about-container {
+        margin: 100px auto;
+        margin-top: 4px;
+        width: 65%;
+        height: auto;
+        text-align: center;
+    }
+
+    .about-image {
+        height: 40px;
+        margin-top:6px;
+    }
+}
+
 /*Resource page*/
 
 .resources-container {
@@ -234,6 +263,15 @@ h3 {
     text-align: center;
 }
 
+@media only screen and (max-width: 768px) {
+    .resources-container {
+        margin: 100px auto;
+        margin-top: 4px;
+        width: 65%;
+        height: auto;
+        text-align: center;
+    }
+}
 
 /*Muscle Groups*/
 
@@ -271,6 +309,27 @@ h3 {
   .group-container a {
     text-decoration: none;
     color: inherit; 
+  }
+
+  @media only screen and (max-width: 768px) {
+    .group-container {
+        display: flex;
+        margin: 100px auto;
+        margin-top: 4px;
+        width: 65%;
+        height: auto;
+        text-align: center;
+    }
+
+    .muscle-name {
+        font-size: 12px;
+        padding:3px;
+    }
+
+ .muscle-box img {
+    width: 100px;
+    height: 75px;
+ }
   }
 
 
@@ -508,9 +567,6 @@ h3 {
     text-align: center;
   }
   
-
-
-
   @media (max-width: 768px) {
     body {
       margin: 0; 
@@ -533,11 +589,10 @@ h3 {
 
     .workout-list {
       width: 100%; 
-      margin: 0;
-      padding: 0; 
-      box-sizing: border-box;
+      margin: 1px;
+      padding: 0;
       flex-direction: column;
-      align-items: center;
+      height: auto;
     
     }
   
@@ -545,8 +600,9 @@ h3 {
       font-size: 15px;
       flex-direction: column;
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       box-sizing: border-box;
+    
       
     
     }
@@ -554,15 +610,7 @@ h3 {
     .workout-notes {
       width: 100%;
     }
-  
-    .button-container {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-    
-
-          }
-        
+     
       
   }
 
