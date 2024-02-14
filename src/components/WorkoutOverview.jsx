@@ -12,12 +12,12 @@ const WorkoutOverview = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedWorkout, setSelectedWorkout] = useState(null);
     const [movement, setMovement] = useState([]);
-    const [daysSinceLastWorkout, setDaysSinceLastWorkout] = useState(null); 
     const [heaviestWorkout, setHeaviestWorkout] = useState(null);
     const [totalSets, setTotalSets] = useState(0);
     const [totalReps, setTotalReps] = useState(0);
     const [workoutFrequency, setWorkoutFrequency] = useState(0);
     const [totalWorkouts, setTotalWorkouts] = useState(0);
+    const [today, setToday] = useState(new Date());
 
 
 
@@ -26,22 +26,10 @@ const WorkoutOverview = () => {
     const fetchWorkouts = async () => {
       try {
      const res = await Client.get('/workouts');
-
-     console.log(res.data)
-
         setWorkouts(res.data);
         setMovement(res.data.movement);
 
-        if (res.data.length > 0) {
-            const lastWorkoutDate = new Date(res.data[0].date);
-            const today = new Date();
-            
-          
-            const oneDay = 24 * 60 * 60 * 1000; 
-            const daysDifference = Math.round(Math.abs((today - lastWorkoutDate) / oneDay));
-    
-            setDaysSinceLastWorkout(daysDifference);
-          }
+       
           const heaviestWorkout = res.data.reduce((maxWeightWorkout, workout) => {
             if (maxWeightWorkout === null || workout.weight > maxWeightWorkout.weight) {
               return workout;
@@ -91,6 +79,9 @@ const WorkoutOverview = () => {
       fetchWorkouts();
     }, []);
 
+    useEffect(() => {
+        setToday(new Date());
+      }, []);
 
  
   
@@ -98,11 +89,7 @@ const WorkoutOverview = () => {
         <div>
           <h1 className="overview-title">My Workouts</h1>
           <div className="overview-stats">
-            {daysSinceLastWorkout !== null && (
-              <div className="widget">
-                <div>Days since last workout: {daysSinceLastWorkout}</div>
-              </div>
-            )}
+            
             {heaviestWorkout !== null && (
               <div className="widget">
                 <div>Biggest Lift: {heaviestWorkout.movement.name} - {heaviestWorkout.weight} lbs</div>

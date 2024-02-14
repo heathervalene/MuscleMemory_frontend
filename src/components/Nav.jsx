@@ -47,7 +47,7 @@ const Nav = ({ user, handleLogOut }) => {
   );
 
   return (
-    <header className="header">
+    <header>
       <img src="https://i.imgur.com/PJZEuw0.png" alt="logo" className="logo" />
       {user ? userOptions : publicOptions}
     </header>
