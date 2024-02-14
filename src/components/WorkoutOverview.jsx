@@ -100,7 +100,7 @@ const WorkoutOverview = () => {
           <h1 className="overview-title">My Workout Overview</h1>
           <div className="data-container">
           <div className="line-chart-container">
-            <div>Total Reps/Sets over time</div>
+            <div className="reps-data-title">Total Reps/Sets over time</div>
         <LineChart width={700} height={300} data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
           <YAxis />
@@ -112,7 +112,7 @@ const WorkoutOverview = () => {
         </LineChart>
       </div>
       <div className="bar-chart-container">
-        <div>Weights per Movement</div>
+        <div className="weight-data-title">Weights per Movement</div>
         <div className="dropdown-container">
         <label>Select a Workout:</label>
         <select onChange={handleMovementChange}>

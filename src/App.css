@@ -537,8 +537,8 @@ h3 {
   }
   
   .overview-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
   }
 
   .delete-button {
@@ -555,6 +555,22 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
+  }
+
+  .reps-data-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px ;
+  }
+
+  .weight-data-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-container {
+    margin-bottom: 8px;
   }
 
 .overview-stats {
