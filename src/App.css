@@ -8,30 +8,22 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px;
     background-color: #495057;
     color: white;
-   
   }
   
 
   .nav-menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 16px;
   }
 
   .nav-menu div {
     display: flex;
     gap: 25px;
-
   }
   
-
- 
   .nav-menu a {
     margin: 0 50px; 
     color: white;
@@ -50,12 +42,18 @@ header {
  
 
   @media only screen and (max-width: 768px) {
+    body, header {
+        margin: 0;
+        padding: 0;
+    }
+
+
     header {
     display: flex;
     flex-direction: row;
     position: fixed;
     bottom: 0;
-    width: auto;
+    width: 100%;
     height: auto;
       
     }
@@ -66,7 +64,7 @@ header {
   
     .nav-menu {
       font-size: 9px;
-      margin:2px;
+      margin:5px;
       width: auto;
      
       
@@ -75,9 +73,8 @@ header {
     .nav-menu div {
         display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    
+        gap: 35px;
+        
     }
 
     .nav-menu a {
@@ -508,7 +505,7 @@ h3 {
 
 .workout-list {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap; 
     margin: 30px;
   }
   
@@ -516,15 +513,16 @@ h3 {
     border: 1px solid black;
     padding: 10px;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    margin-right: 10px;
+    width: 300px;
     box-shadow: 0 0 20px 5px rgba(244, 242, 242, 0.1);
-   
   }
-  
-  .workout-item > div {
-    margin-bottom: 5px;
+
+ 
+  .date {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
   }
 
   .workout-notes {
@@ -600,6 +598,12 @@ h3 {
         flex-direction: column;
     }
 
+    .data-container {
+        grid-template-columns: 1fr; 
+      }
+
+  
+
     .widget {
         margin:1px;
         font-size: 12px;
@@ -608,9 +612,8 @@ h3 {
 
     .workout-item {
       font-size: 12px;
-      flex-direction: column;
-      margin-bottom: 5px;
-      box-sizing: border-box;
+      width:100%;
+      margin-right:0;
     
     } 
   
@@ -622,6 +625,10 @@ h3 {
         margin:1px;
         font-size: 12px;
        
+    }
+
+    .ReactModal__Content--after-open {
+        width: 50%;
     }
       
   }

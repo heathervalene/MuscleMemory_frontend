@@ -60,7 +60,7 @@ const [updatedWorkout, setUpdatedWorkout] = useState({
         >
             <div>
           <h2 className="overview-title">Update Workout</h2>
-          <form onSubmit={handleSubmit} className="form">
+          <form onSubmit={handleSubmit} className="modal-form">
             <div className="formGroup">
             <label htmlFor="sets" className="label">Sets:</label>
             <input className="input"
