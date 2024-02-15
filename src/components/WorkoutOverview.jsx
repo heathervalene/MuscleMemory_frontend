@@ -95,19 +95,12 @@ const WorkoutOverview = () => {
 
         useEffect(() => {
             const handleResize = () => {
-              // Update the chart width based on the window width
-              const newWidth = window.innerWidth < 600 ? window.innerWidth - 20 : 600; // Adjust as needed
+             const newWidth = window.innerWidth < 600 ? window.innerWidth - 20 : 600; 
               setChartWidth(newWidth);
             };
-        
-            // Listen for window resize events
-            window.addEventListener('resize', handleResize);
-        
-            // Initial call to set the initial chart width
-            handleResize();
-        
-            // Cleanup the event listener when the component unmounts
-            return () => {
+         window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => {
               window.removeEventListener('resize', handleResize);
             };
           }, []);
