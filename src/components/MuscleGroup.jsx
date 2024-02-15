@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
 
 
-const MuscleGroup = ({muscleGroups}) => {
+const MuscleGroup = ({user, muscleGroups}) => {
+
+    if (user)
     return (
         <div>
+            <h3 className="greeting">Hi {user.name}, lets get those gains 💪 </h3>
             <h1 className="group-title">Muscle Map</h1>
             <div className="group-container">
             {muscleGroups.map(muscle => (

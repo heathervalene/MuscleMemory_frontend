@@ -63,7 +63,7 @@ function App() {
      <Route path="/signin" element={<SignIn setUser={setUser} />} />
      <Route path="/register" element={<Register />} />
      <Route path="/update-password" element={<UpdatePassword />} />
-     <Route path ='/musclegroup' element={<MuscleGroup muscleGroups={muscleGroups}/>} />
+     <Route path ='/musclegroup' element={<MuscleGroup muscleGroups={muscleGroups} user={user}/>} />
      <Route path="/movements/:id" element={<Movement user={user} />} />
      <Route path ='/addworkout/:movementId' element={<AddWorkout/>} />
      <Route path = '/workoutoverview/' element={<WorkoutOverview />} />

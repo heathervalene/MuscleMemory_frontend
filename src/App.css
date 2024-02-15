@@ -270,6 +270,10 @@ h3 {
 
 /*Muscle Groups*/
 
+.greeting {
+    text-align: center;
+}
+
 .group-title {
     text-align: center;
 }
