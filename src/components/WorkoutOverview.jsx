@@ -20,6 +20,8 @@ const WorkoutOverview = () => {
     const [totalWorkouts, setTotalWorkouts] = useState(0);
     const [today, setToday] = useState(new Date());
     const [selectedMovement, setSelectedMovement] = useState(null);
+    const [chartWidth, setChartWidth] = useState(600);
+
 
  
     const fetchWorkouts = async () => {
@@ -91,6 +93,25 @@ const WorkoutOverview = () => {
  
         const sortedWorkouts = [...workouts].sort((a, b) => new Date(a.date) - new Date(b.date));
 
+        useEffect(() => {
+            const handleResize = () => {
+              // Update the chart width based on the window width
+              const newWidth = window.innerWidth < 600 ? window.innerWidth - 20 : 600; // Adjust as needed
+              setChartWidth(newWidth);
+            };
+        
+            // Listen for window resize events
+            window.addEventListener('resize', handleResize);
+        
+            // Initial call to set the initial chart width
+            handleResize();
+        
+            // Cleanup the event listener when the component unmounts
+            return () => {
+              window.removeEventListener('resize', handleResize);
+            };
+          }, []);
+
   
     return (
         <div>
@@ -98,7 +119,7 @@ const WorkoutOverview = () => {
           <div className="data-container">
           <div className="line-chart-container">
             <div className="reps-data-title">Total Reps/Sets over time</div>
-        <LineChart  width={600} height={300}  data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <LineChart  width={chartWidth} height={300}  data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
@@ -122,7 +143,7 @@ const WorkoutOverview = () => {
         </select>
       </div>
       <div className="bar-chart-container">
-      <BarChart width={600} height={300} data={filteredWorkouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+      <BarChart width={chartWidth} height={300} data={filteredWorkouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />

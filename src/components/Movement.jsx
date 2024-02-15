@@ -43,7 +43,7 @@ const Movement = ({user}) => {
                   Add Workout
                 </Link>
                     ) : (
-                        <span className="add-button-disabled">Login to log your workout!</span>
+                        <span className="add-button-disabled">Sign in to log your workout!</span>
                       )}
                 </div>
               </div>

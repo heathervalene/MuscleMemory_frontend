@@ -631,9 +631,13 @@ h3 {
     }
 
     .bar-chart-container,
-    .data-container,
     .line-chart-container {
-        width: 50%;
+        font-size: 9px;
+       
+    }
+
+    .dropdown-container {
+        margin-left: 10px;
     }
       
   }
