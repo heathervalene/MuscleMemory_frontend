@@ -74,6 +74,7 @@ header {
         display: flex;
       flex-direction: row;
         gap: 35px;
+      
         
     }
 
@@ -586,8 +587,6 @@ h3 {
   }
 
 
-
-  
   @media (max-width: 768px) {
     .overview-title {
       font-size: 20px;
@@ -627,7 +626,9 @@ h3 {
        
     }
 
-    .ReactModal__Content--after-open {
+    .bar-chart-container,
+    .data-container,
+    .line-chart-container {
         width: 50%;
     }
       

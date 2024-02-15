@@ -98,7 +98,7 @@ const WorkoutOverview = () => {
           <div className="data-container">
           <div className="line-chart-container">
             <div className="reps-data-title">Total Reps/Sets over time</div>
-        <LineChart width={600} height={300} data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <LineChart  width={600} height={300}  data={workouts} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
