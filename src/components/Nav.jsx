@@ -1,9 +1,9 @@
-
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 
 const Nav = ({ user, handleLogOut }) => {
-    
+
+
   const userOptions = (
     <nav className="nav-menu">
       <div>

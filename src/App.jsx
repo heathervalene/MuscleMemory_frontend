@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CheckSession } from './assets/services/auth'
+import { useNavigate } from "react-router-dom";
 import './App.css'
 import Client from './assets/services/api'
 import Register from './components/Register'
@@ -17,6 +18,9 @@ import Movement from './components/Movement'
 
 
 function App() {
+
+const navigate = useNavigate();
+
 
   const [user, setUser] = useState(null)
   const [muscleGroups, setMuscleGroups] = useState([])
@@ -44,7 +48,19 @@ function App() {
     const handleLogOut = () => {
       setUser(null)
       localStorage.clear()
+     
     }
+
+    useEffect(() => {
+     if (user === null) {
+      navigate('/musclegroup', { replace: true })
+     }
+    }, [user])
+
+    
+    useEffect(() => {
+       ('/musclegroup', { replace: true })
+     }, [])
   
 
   return (
