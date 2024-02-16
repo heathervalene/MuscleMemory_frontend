@@ -14,7 +14,7 @@
 
 [Client-side Repo](https://github.com/heathervalene/MuscleMemory_frontend)
 
-[Live Site]()
+[Live Site](https://muscle-memory-p4-30fa7080ab95.herokuapp.com/musclegroup)
 
 ***
 
@@ -51,7 +51,9 @@
 
 #### App Images
 
+![Mobile View](https://i.imgur.com/fq7Vfmw.png)
 
+![Desktop View](https://i.imgur.com/5fsBIor.png)
 
 
 
@@ -59,10 +61,17 @@
 
 #### **_Future Updates_**
 
-
+- More workouts
+- Stronger authentication handling
+- Social Features (share workouts, comment on workouts)
 
 
 
 ***
 
 ### **_Credits_**
+
+[ Workout images from Habinest](https://habitnest.com/)
+[Muscle Group images from Adobe Stock](https://stock.adobe.com/)
+[StackOverflow](https://stackoverflow.com/)
+
